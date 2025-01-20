@@ -1,0 +1,7 @@
+.information {
+	display: inline-block;
+	margin: 2px;
+	font-size: 19px;
+	font-weight: bold;
+	color: red;
+}
