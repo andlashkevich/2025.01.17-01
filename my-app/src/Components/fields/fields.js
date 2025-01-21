@@ -42,32 +42,22 @@ export const Fields = () => {
 			ar[event.target.outerHTML[13]] = st.currentPlayer;
 			store.dispatch({ type: 'SET_FIELD', payload: ar });
 		}
+		const { currentPlayer, fields } = store.getState();
 
 		win.find(
 			(it) =>
-				st.currentPlayer === st.fields[it[0]] &&
-				st.currentPlayer === st.fields[it[1]] &&
-				st.currentPlayer === st.fields[it[2]],
+				currentPlayer === fields[it[0]] &&
+				currentPlayer === fields[it[1]] &&
+				currentPlayer === fields[it[2]],
 		)
 			? store.dispatch({ type: 'SET_GAME_ENDED', payload: true })
-			: !st.fields.includes(' ')
+			: !fields.includes(' ')
 				? store.dispatch({ type: 'SET_IS_DRAW', payload: true })
-				: st.currentPlayer === '0'
+				: currentPlayer === '0'
 					? store.dispatch({ type: 'SET_CURRENT_PLAYER', payload: 'X' })
 					: store.dispatch({ type: 'SET_CURRENT_PLAYER', payload: '0' });
 		setSt(store.getState());
-		// console.log('gameEnded-', st.isGameEnded, 'isDraw', st.isDraw);
 	};
 
 	return <FieldLayout fields={st.fields} handleStep={handleStep} />;
 };
-
-// useEffect(() => {
-// 	store.subscribe(() => {
-// 		setSt(store.getState());
-// 	});
-// 	// const unsubscribe = store.subscribe(() => {
-// 	// 	setSt(store.getState());
-// 	// });
-// 	// unsubscribe();
-// }, []);

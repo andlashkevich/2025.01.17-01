@@ -14,10 +14,6 @@ export const Information = () => {
 		store.subscribe(() => {
 			setSt(store.getState());
 		});
-		const unsubscribe = store.subscribe(() => {
-			setSt(store.getState());
-		});
-		unsubscribe();
 	}, []);
 
 	st.isDraw
@@ -26,6 +22,11 @@ export const Information = () => {
 			? (message = `Победа: ${st.currentPlayer}`)
 			: (message = `Ходит: ${st.currentPlayer}`);
 
-	console.log('gameEnded-', st.isGameEnded, 'isDraw', st.isDraw);
+	// const unsubscribe = store.subscribe(() => {
+	// 	setSt(store.getState());
+	// });
+	// unsubscribe();
+	// console.log('gameEnded-', st.isGameEnded, 'isDraw', st.isDraw);
+
 	return <InformationLayout message={message} />;
 };
