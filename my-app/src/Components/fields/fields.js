@@ -1,6 +1,6 @@
 import styles from './fields.module.css';
 import { store } from '../../store';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const FieldLayout = ({ handleStep }) => {
 	const { fields } = store.getState();
@@ -35,6 +35,12 @@ export const Fields = () => {
 		[0, 4, 8],
 		[2, 4, 6],
 	];
+
+	useEffect(() => {
+		store.subscribe(() => {
+			setSt(store.getState());
+		});
+	}, []);
 
 	const handleStep = (event) => {
 		if (!st.isDraw && !st.isGameEnded && event.target.textContent === ' ') {

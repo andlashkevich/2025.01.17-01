@@ -22,11 +22,5 @@ export const Information = () => {
 			? (message = `Победа: ${st.currentPlayer}`)
 			: (message = `Ходит: ${st.currentPlayer}`);
 
-	// const unsubscribe = store.subscribe(() => {
-	// 	setSt(store.getState());
-	// });
-	// unsubscribe();
-	// console.log('gameEnded-', st.isGameEnded, 'isDraw', st.isDraw);
-
 	return <InformationLayout message={message} />;
 };

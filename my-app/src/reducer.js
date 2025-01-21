@@ -12,18 +12,16 @@ export const reducer = (state = initialState, { type, payload }) => {
 				...state,
 				currentPlayer: payload,
 			};
-		case 'SET_IS_DRAW': {
+		case 'SET_IS_DRAW':
 			return {
 				...state,
 				isDraw: payload,
 			};
-		}
-		case 'SET_GAME_ENDED': {
+		case 'SET_GAME_ENDED':
 			return {
 				...state,
 				isGameEnded: payload,
 			};
-		}
 		case 'SET_FIELD':
 			return {
 				...state,
