@@ -43,6 +43,7 @@ export const Fields = () => {
 	}, []);
 
 	const handleStep = (event) => {
+
 		if (!st.isDraw && !st.isGameEnded && event.target.textContent === ' ') {
 			let ar = [...st.fields];
 			ar[event.target.outerHTML[13]] = st.currentPlayer;

@@ -23,4 +23,8 @@ export const Information = () => {
 			: (message = `Ходит: ${st.currentPlayer}`);
 
 	return <InformationLayout message={message} />;
+	// const unsubscribe = store.subscribe(() => {
+	// 	setSt(store.getState());
+	// });
+	// unsubscribe();
 };
